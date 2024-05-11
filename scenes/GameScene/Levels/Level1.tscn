@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://1pdv76fc2dve"]
+[gd_scene load_steps=3 format=3 uid="uid://1pdv76fc2dve"]
 
 [ext_resource type="Script" path="res://scenes/GameScene/Levels/Level.gd" id="1_k6pla"]
+[ext_resource type="Texture2D" uid="uid://d0xybhwbakewv" path="res://assets/images/Level_BG.png" id="2_xkeat"]
 
 [node name="Level1" type="HBoxContainer"]
 anchors_preset = 15
@@ -11,8 +12,10 @@ grow_vertical = 2
 script = ExtResource("1_k6pla")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(150, 120)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 10
+size_flags_vertical = 4
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
@@ -23,8 +26,10 @@ layout_mode = 2
 text = "Lose"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(150, 120)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 2
+size_flags_vertical = 4
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
@@ -33,6 +38,12 @@ theme_override_constants/margin_bottom = 32
 [node name="WinButton" type="Button" parent="MarginContainer2"]
 layout_mode = 2
 text = "Win"
+
+[node name="LevelBg" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(609, 366)
+scale = Vector2(0.439903, 0.440854)
+texture = ExtResource("2_xkeat")
 
 [connection signal="pressed" from="MarginContainer/LoseButton" to="." method="_on_lose_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/WinButton" to="." method="_on_win_button_pressed"]
