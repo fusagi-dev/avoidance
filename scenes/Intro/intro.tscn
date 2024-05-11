@@ -1,0 +1,73 @@
+[gd_scene load_steps=14 format=3 uid="uid://bet6ulti3kth5"]
+
+[ext_resource type="Texture2D" uid="uid://kt53oxupkdr4" path="res://assets/images/Intro/Intro-01.png" id="1_lgvpj"]
+[ext_resource type="Script" path="res://scenes/Intro/intro.gd" id="1_xqak3"]
+[ext_resource type="Texture2D" uid="uid://dq2qso8ao2eh1" path="res://assets/images/Intro/Intro-02.png" id="2_x0826"]
+[ext_resource type="Texture2D" uid="uid://cu13ct284hdkt" path="res://assets/images/Intro/Intro-09.png" id="3_7dn82"]
+[ext_resource type="Texture2D" uid="uid://bfue2ed2cy2af" path="res://assets/images/Intro/Intro-03.png" id="4_3exwa"]
+[ext_resource type="Texture2D" uid="uid://dhc50vkn2ev3v" path="res://assets/images/Intro/Intro-04.png" id="5_b4b32"]
+[ext_resource type="Texture2D" uid="uid://rwhqt1ur3yiq" path="res://assets/images/Intro/Intro-05.png" id="6_8wh0h"]
+[ext_resource type="Texture2D" uid="uid://8w5uev8lc7io" path="res://assets/images/Intro/Intro-06.png" id="7_luksm"]
+[ext_resource type="Texture2D" uid="uid://qx1e61k8hruv" path="res://assets/images/Intro/Intro-07.png" id="8_brc2p"]
+[ext_resource type="Texture2D" uid="uid://dvw3qnvdwrfww" path="res://assets/images/Intro/Intro-08.png" id="9_rek0a"]
+
+[sub_resource type="Animation" id="Animation_375d7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IntroSlideShow:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_lgvpj")]
+}
+
+[sub_resource type="Animation" id="Animation_dyo4u"]
+resource_name = "intro_animation"
+length = 18.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IntroSlideShow:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12, 14, 16),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_lgvpj"), ExtResource("2_x0826"), ExtResource("4_3exwa"), ExtResource("5_b4b32"), ExtResource("6_8wh0h"), ExtResource("7_luksm"), ExtResource("8_brc2p"), ExtResource("9_rek0a"), ExtResource("3_7dn82")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c2wm0"]
+_data = {
+"RESET": SubResource("Animation_375d7"),
+"intro_animation": SubResource("Animation_dyo4u")
+}
+
+[node name="Intro" type="Node"]
+script = ExtResource("1_xqak3")
+game_scene_path = "res://scenes/GameScene/GameUI.tscn"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c2wm0")
+}
+autoplay = "intro_animation"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.734845, 0.763266, 0.739846, 1)
+
+[node name="IntroSlideShow" type="Sprite2D" parent="."]
+position = Vector2(645, 361)
+scale = Vector2(0.442683, 0.442683)
+texture = ExtResource("1_lgvpj")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

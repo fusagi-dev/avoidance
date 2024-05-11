@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cqsd4y02iipnw"]
 
-[ext_resource type="PackedScene" path="res://scenes/Menus/MainMenu/MainMenu.tscn" id="1_uemi4"]
+[ext_resource type="PackedScene" uid="uid://uacjonr6fobv" path="res://scenes/Menus/MainMenu/MainMenu.tscn" id="1_uemi4"]
 [ext_resource type="Script" path="res://scenes/Menus/MainMenu/MainMenuWithAnimations.gd" id="2_t5wef"]
 
 [sub_resource type="Animation" id="1"]
