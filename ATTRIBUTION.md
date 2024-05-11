@@ -1,8 +1,17 @@
 # Attribution
 ## Collaborators
 
-### Programming, design
+#### Programming
 fusagi
+
+#### Game design
+fusagi
+
+#### Art
+Chai
+
+#### Music
+Dusk
 
 ## Tools
 #### Godot Game Template
