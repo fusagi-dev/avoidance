@@ -4,7 +4,7 @@ var animation_state_machine : AnimationNodeStateMachinePlayback
 
 func play_intro():
 	GameLog.game_started()
-	super.play_intro()
+	super.play_game()
 
 func intro_done():
 	animation_state_machine.travel("OpenMainMenu")
