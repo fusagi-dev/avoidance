@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://dwmkyryfu4sg2"]
 
-[ext_resource type="Script" path="res://scenes/Intro/intro.gd" id="1_bvyme"]
+[ext_resource type="Script" path="res://scenes/Outro/outro.gd" id="1_46xg3"]
 [ext_resource type="Texture2D" uid="uid://kt53oxupkdr4" path="res://assets/images/Intro/Intro-01.png" id="2_vfyr0"]
 [ext_resource type="Texture2D" uid="uid://dc2em67sy6c2c" path="res://assets/images/OutroWin/OutroWin-2.png" id="3_f1cri"]
 [ext_resource type="Texture2D" uid="uid://bqjqihiefj4bp" path="res://assets/images/OutroWin/OutroWin-3.png" id="4_3utn0"]
@@ -74,8 +74,7 @@ _data = {
 }
 
 [node name="Outro" type="Node"]
-script = ExtResource("1_bvyme")
-game_scene_path = "res://scenes/GameScene/GameUI.tscn"
+script = ExtResource("1_46xg3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

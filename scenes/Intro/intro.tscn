@@ -1,5 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bet6ulti3kth5"]
 
+[ext_resource type="Script" path="res://scenes/Intro/intro.gd" id="1_bebfs"]
 [ext_resource type="Texture2D" uid="uid://kt53oxupkdr4" path="res://assets/images/Intro/Intro-01.png" id="1_lgvpj"]
 [ext_resource type="Texture2D" uid="uid://dq2qso8ao2eh1" path="res://assets/images/Intro/Intro-02.png" id="2_x0826"]
 [ext_resource type="Texture2D" uid="uid://cu13ct284hdkt" path="res://assets/images/Intro/Intro-09.png" id="3_7dn82"]
@@ -9,22 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://8w5uev8lc7io" path="res://assets/images/Intro/Intro-06.png" id="7_luksm"]
 [ext_resource type="Texture2D" uid="uid://qx1e61k8hruv" path="res://assets/images/Intro/Intro-07.png" id="8_brc2p"]
 [ext_resource type="Texture2D" uid="uid://dvw3qnvdwrfww" path="res://assets/images/Intro/Intro-08.png" id="9_rek0a"]
-
-[sub_resource type="GDScript" id="GDScript_jlkn8"]
-script/source = "extends Node
-
-@export_file(\"*.tscn\") var game_scene_path : String
-
-func _on_animation_player_animation_finished(anim_name):
-	print(\"animation finished intro\")
-	SceneLoader.load_scene(game_scene_path)
-
-
-func _on_skip_button_pressed():
-	print(\"animation stopped intro\")
-	$AnimationPlayer.queue_free()
-	SceneLoader.load_scene(game_scene_path)
-"
 
 [sub_resource type="Animation" id="Animation_375d7"]
 length = 0.001
@@ -64,7 +49,7 @@ _data = {
 }
 
 [node name="Intro" type="Node"]
-script = SubResource("GDScript_jlkn8")
+script = ExtResource("1_bebfs")
 game_scene_path = "res://scenes/GameScene/GameUI.tscn"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
