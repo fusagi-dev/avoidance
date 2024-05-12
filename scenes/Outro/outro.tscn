@@ -34,22 +34,6 @@ tracks/0/keys = {
 "values": [ExtResource("2_vfyr0")]
 }
 
-[sub_resource type="Animation" id="Animation_ytkm4"]
-resource_name = "outro_lose_animation"
-length = 20.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("OutroSlideShow:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12, 14, 16, 18),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("2_vfyr0"), ExtResource("3_f1cri"), ExtResource("4_3utn0"), ExtResource("5_klb7q"), ExtResource("6_ue0gw"), ExtResource("7_6a3ya"), ExtResource("8_oae4p"), ExtResource("9_23t3j"), ExtResource("10_16mnt"), ExtResource("11_0v05i")]
-}
-
 [sub_resource type="Animation" id="Animation_krqto"]
 resource_name = "outro_lose_animation"
 length = 16.0
@@ -64,6 +48,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("2_vfyr0"), ExtResource("12_vykfx"), ExtResource("13_ye68n"), ExtResource("14_ayxx5"), ExtResource("15_ins61"), ExtResource("16_8cn8u"), ExtResource("17_217k4"), ExtResource("18_w32y1")]
+}
+
+[sub_resource type="Animation" id="Animation_ytkm4"]
+resource_name = "outro_lose_animation"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OutroSlideShow:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12, 14, 16, 18),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_vfyr0"), ExtResource("3_f1cri"), ExtResource("4_3utn0"), ExtResource("5_klb7q"), ExtResource("6_ue0gw"), ExtResource("7_6a3ya"), ExtResource("8_oae4p"), ExtResource("9_23t3j"), ExtResource("10_16mnt"), ExtResource("11_0v05i")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c2wm0"]
@@ -95,4 +95,13 @@ position = Vector2(645, 361)
 scale = Vector2(0.442683, 0.442683)
 texture = ExtResource("2_vfyr0")
 
+[node name="SkipButton" type="Button" parent="."]
+offset_left = 1117.0
+offset_top = 37.0
+offset_right = 1245.0
+offset_bottom = 94.0
+text = "Skip"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_button_pressed"]

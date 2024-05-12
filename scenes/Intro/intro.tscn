@@ -16,6 +16,13 @@ script/source = "extends Node
 @export_file(\"*.tscn\") var game_scene_path : String
 
 func _on_animation_player_animation_finished(anim_name):
+	print(\"animation finished intro\")
+	SceneLoader.load_scene(game_scene_path)
+
+
+func _on_skip_button_pressed():
+	print(\"animation stopped intro\")
+	$AnimationPlayer.queue_free()
 	SceneLoader.load_scene(game_scene_path)
 "
 
@@ -78,5 +85,13 @@ position = Vector2(645, 361)
 scale = Vector2(0.442683, 0.442683)
 texture = ExtResource("1_lgvpj")
 
+[node name="SkipButton" type="Button" parent="."]
+offset_left = 1057.0
+offset_top = 54.0
+offset_right = 1219.0
+offset_bottom = 110.0
+text = "Skip"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
