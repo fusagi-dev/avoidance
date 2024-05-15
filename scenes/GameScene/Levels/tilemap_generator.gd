@@ -1,12 +1,17 @@
 @tool
 extends EditorScript
 
-var SCALE = 10
+const SCALE = 10
+const LEVEL_IMG_PATH = "res://assets/images/Levels/castle_10x.png"
+const VOID_PATH = "res://assets/images/Levels/void.png"
+const OUTPUT_PATH = "res://scenes/GameScene/Levels/LevelTileMap.tscn"
 
 # Called when the script is executed (using File -> Run in Script Editor).
 func _run():
-	var input_texture: Texture2D = preload("res://assets/images/Levels/castle_10x.png")
+	var input_texture: Texture2D = preload(LEVEL_IMG_PATH)
 	var input_image: Image = input_texture.get_image()
+	
+	var input_void: Image = preload(VOID_PATH).get_image()
 	
 	var palette = {}
 	var atlas = TileSetAtlasSource.new()
@@ -25,7 +30,17 @@ func _run():
 
 	var tile_set = TileSet.new()
 	tile_set.tile_size = Vector2i(10, 10)
-	tile_set.add_source(atlas)
+	tile_set.add_source(atlas, 0)
+	
+	# add void
+	var void_atlas = TileSetAtlasSource.new()
+	void_atlas.texture = input_void
+	void_atlas.texture_region_size = Vector2i(SCALE,SCALE)
+	for x in range(0, input_void.get_width(), SCALE):
+		for y in range(0, input_void.get_height(), SCALE):
+			void_atlas.create_tile(Vector2i(x / SCALE, y / SCALE))
+	
+	tile_set.add_source(void_atlas, 1)
 	
 	var tilemap = TileMap.new()
 	tilemap.tile_set = tile_set
@@ -39,7 +54,7 @@ func _run():
 	var scene = PackedScene.new()
 	var result = scene.pack(tilemap)
 	if result == OK:
-		var error = ResourceSaver.save(scene, "res://scenes/GameScene/Levels/LevelTileMap.tscn")
+		var error = ResourceSaver.save(scene, OUTPUT_PATH)
 		if error != OK:
 			push_error("Something went wrong when saving the scene to disk.")
 
