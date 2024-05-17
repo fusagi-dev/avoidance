@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://uacjonr6fobv"]
+[gd_scene load_steps=5 format=3 uid="uid://uacjonr6fobv"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/Menus/MainMenu/MainMenu.tscn" id="1_qga4p"]
 [ext_resource type="PackedScene" uid="uid://cagfbg7m2undu" path="res://scenes/Menus/OptionsMenu/MasterOptionsMenuWithTabs.tscn" id="2_ir3dh"]
 [ext_resource type="PackedScene" uid="uid://clabvuaem7bsx" path="res://scenes/Credits/Credits.tscn" id="3_fhpuo"]
+[ext_resource type="FontFile" uid="uid://cnfxocl60ho25" path="res://assets/fonts/KolkerBrush-Regular.ttf" id="4_afrqv"]
 
 [node name="MainMenu" instance=ExtResource("1_qga4p")]
 game_scene_path = "res://scenes/Intro/intro.tscn"
@@ -10,6 +11,8 @@ options_packed_scene = ExtResource("2_ir3dh")
 credits_packed_scene = ExtResource("3_fhpuo")
 
 [node name="Title" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer" index="0"]
+theme_override_fonts/font = ExtResource("4_afrqv")
+theme_override_font_sizes/font_size = 128
 text = "aVOIDance"
 
 [node name="SubTitle" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer" index="1"]
@@ -41,8 +44,10 @@ theme_override_font_sizes/font_size = 42
 [node name="EasterEgg" type="Label" parent="." index="8"]
 layout_mode = 0
 offset_left = 687.0
-offset_top = 234.0
+offset_top = 263.0
 offset_right = 1207.0
-offset_bottom = 397.0
-theme_override_font_sizes/font_size = 24
-text = "Everything changes, nothing perishes. —Ovid"
+offset_bottom = 426.0
+theme_override_fonts/font = ExtResource("4_afrqv")
+theme_override_font_sizes/font_size = 64
+text = "Everything changes, nothing perishes.
+                                  —Ovid"

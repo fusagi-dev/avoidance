@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://qn4a7owdi3mt"]
+[gd_scene load_steps=4 format=3 uid="uid://qn4a7owdi3mt"]
 
-[ext_resource type="PackedScene" path="res://scenes/Menus/OptionsMenu/Video/VideoOptionsMenu.tscn" id="1_jl0c8"]
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/scenes/Menus/OptionsMenu/OptionControl/ListOptionControl.tscn" id="2_yn4ne"]
+[ext_resource type="PackedScene" uid="uid://dg0ug0wyhh6k" path="res://scenes/Menus/OptionsMenu/Video/VideoOptionsMenu.tscn" id="1_jl0c8"]
+[ext_resource type="Theme" uid="uid://c8sqtxnb846lf" path="res://default_theme.tres" id="2_7mtos"]
+[ext_resource type="PackedScene" uid="uid://b6bl3n5mp3m1e" path="res://addons/maaacks_game_template/base/scenes/Menus/OptionsMenu/OptionControl/ListOptionControl.tscn" id="2_yn4ne"]
 
 [node name="Video" instance=ExtResource("1_jl0c8")]
+theme = ExtResource("2_7mtos")
 
 [node name="AntiAliasingControl" parent="VBoxContainer" index="2" instance=ExtResource("2_yn4ne")]
 layout_mode = 2
@@ -28,3 +30,15 @@ key = "CameraShake"
 section = "VideoSettings"
 property_type = 3
 default_value = 1.0
+
+[node name="FontControl" parent="VBoxContainer" index="4" instance=ExtResource("2_yn4ne")]
+layout_mode = 2
+option_values = ["res://assets/fonts/Cyrulik-Rounded.ttf", "res://assets/fonts/OpenDyslexic3-Regular.ttf", "res://assets/fonts/VerdanteSans-Regular.otf"]
+option_titles = ["res://assets/fonts/Cyrulik-Rounded.ttf", "res://assets/fonts/OpenDyslexic3-Regular.ttf", "res://assets/fonts/VerdanteSans-Regular.otf"]
+option_name = "Font"
+option_section = 3
+key = "Font"
+section = "VideoSettings"
+property_type = 4
+
+[connection signal="setting_changed" from="VBoxContainer/FontControl" to="." method="_on_font_control_setting_changed"]

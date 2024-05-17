@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c8sqtxnb846lf"]
+
+[ext_resource type="FontFile" uid="uid://c2l2cm5qvcmr2" path="res://assets/fonts/Cyrulik-Rounded.ttf" id="1_4ld2r"]
+
+[resource]
+default_font = ExtResource("1_4ld2r")
+default_font_size = 24
