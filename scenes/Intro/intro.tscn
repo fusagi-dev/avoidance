@@ -1,15 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://bet6ulti3kth5"]
+[gd_scene load_steps=11 format=3 uid="uid://bet6ulti3kth5"]
 
 [ext_resource type="Script" path="res://scenes/Intro/intro.gd" id="1_bebfs"]
 [ext_resource type="Texture2D" uid="uid://kt53oxupkdr4" path="res://assets/images/Intro/Intro-01.png" id="1_lgvpj"]
-[ext_resource type="Texture2D" uid="uid://dq2qso8ao2eh1" path="res://assets/images/Intro/Intro-02.png" id="2_x0826"]
-[ext_resource type="Texture2D" uid="uid://cu13ct284hdkt" path="res://assets/images/Intro/Intro-09.png" id="3_7dn82"]
-[ext_resource type="Texture2D" uid="uid://bfue2ed2cy2af" path="res://assets/images/Intro/Intro-03.png" id="4_3exwa"]
-[ext_resource type="Texture2D" uid="uid://dhc50vkn2ev3v" path="res://assets/images/Intro/Intro-04.png" id="5_b4b32"]
-[ext_resource type="Texture2D" uid="uid://rwhqt1ur3yiq" path="res://assets/images/Intro/Intro-05.png" id="6_8wh0h"]
-[ext_resource type="Texture2D" uid="uid://8w5uev8lc7io" path="res://assets/images/Intro/Intro-06.png" id="7_luksm"]
-[ext_resource type="Texture2D" uid="uid://qx1e61k8hruv" path="res://assets/images/Intro/Intro-07.png" id="8_brc2p"]
-[ext_resource type="Texture2D" uid="uid://dvw3qnvdwrfww" path="res://assets/images/Intro/Intro-08.png" id="9_rek0a"]
+[ext_resource type="Texture2D" uid="uid://chrpmfujebjts" path="res://assets/images/Intro/IMG_0925.PNG" id="3_by6bi"]
+[ext_resource type="Texture2D" uid="uid://ctdy2wjiil8ax" path="res://assets/images/Intro/IMG_0927.PNG" id="4_2k7k7"]
+[ext_resource type="Texture2D" uid="uid://oh0cguq41shu" path="res://assets/images/Intro/IMG_0928.PNG" id="5_ikptx"]
+[ext_resource type="Texture2D" uid="uid://d03gxjv77c3mu" path="res://assets/images/Intro/IMG_0931.PNG" id="6_e0gmh"]
+[ext_resource type="Texture2D" uid="uid://daulv34i2mtba" path="res://assets/images/Intro/IMG_0932.PNG" id="7_y5ut5"]
 
 [sub_resource type="Animation" id="Animation_375d7"]
 length = 0.001
@@ -25,10 +22,22 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("1_lgvpj")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]The artist was driven, quick, and meticulous.[/center]"]
+}
 
 [sub_resource type="Animation" id="Animation_dyo4u"]
 resource_name = "intro_animation"
-length = 18.0
+length = 22.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -36,10 +45,22 @@ tracks/0/path = NodePath("IntroSlideShow:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12, 14, 16),
+"times": PackedFloat32Array(0, 2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("1_lgvpj"), ExtResource("2_x0826"), ExtResource("4_3exwa"), ExtResource("5_b4b32"), ExtResource("6_8wh0h"), ExtResource("7_luksm"), ExtResource("8_brc2p"), ExtResource("9_rek0a"), ExtResource("3_7dn82")]
+"values": [ExtResource("3_by6bi"), ExtResource("3_by6bi"), ExtResource("4_2k7k7"), ExtResource("5_ikptx"), ExtResource("6_e0gmh"), ExtResource("6_e0gmh"), ExtResource("6_e0gmh"), ExtResource("7_y5ut5"), ExtResource("7_y5ut5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["[center]There once was an artist working on a painting.[/center]", "[center]It was almost done...[/center]", "[center]But... one thing needed their attention.[/center]", "[center]Then another.[/center]", "[center]Then another...[/center]", "[center]And they never came back to finish it.[/center]", "[center]Just a tiny blank space in the corner was left, waiting to be filled.[/center]", "[center]All blank spaces get filled, eventually.[/center]", "[center]In this one, a tiny void appeared.[/center]"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c2wm0"]
@@ -66,8 +87,8 @@ offset_bottom = 720.0
 color = Color(0.734845, 0.763266, 0.739846, 1)
 
 [node name="IntroSlideShow" type="Sprite2D" parent="."]
-position = Vector2(645, 361)
-scale = Vector2(0.442683, 0.442683)
+position = Vector2(651, 256)
+scale = Vector2(0.684722, 0.684722)
 texture = ExtResource("1_lgvpj")
 
 [node name="SkipButton" type="Button" parent="."]
@@ -76,6 +97,22 @@ offset_top = 54.0
 offset_right = 1219.0
 offset_bottom = 110.0
 text = "Skip"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -7.0
+offset_top = 562.0
+offset_right = 1289.0
+offset_bottom = 731.0
+color = Color(0.79784, 0.786049, 0.723451, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_top = 603.0
+offset_right = 1277.0
+offset_bottom = 717.0
+theme_override_colors/default_color = Color(0.271163, 0.124928, 0.0479414, 1)
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[center]The artist was driven, quick, and meticulous.[/center]"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]

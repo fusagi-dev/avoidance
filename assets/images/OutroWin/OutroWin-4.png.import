@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7f0qvcsmd7vu"
-path="res://.godot/imported/OutroWin-4.png-97a2b17f105f76b20ae35c8e0ea9cd08.ctex"
+path="res://.godot/imported/OutroWin-4.PNG-e84becb429430a9a79b7903d0a8f1b2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/OutroWin/OutroWin-4.png"
-dest_files=["res://.godot/imported/OutroWin-4.png-97a2b17f105f76b20ae35c8e0ea9cd08.ctex"]
+source_file="res://assets/images/OutroWin/OutroWin-4.PNG"
+dest_files=["res://.godot/imported/OutroWin-4.PNG-e84becb429430a9a79b7903d0a8f1b2d.ctex"]
 
 [params]
 

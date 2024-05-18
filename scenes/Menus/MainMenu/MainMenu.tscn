@@ -1,22 +1,90 @@
-[gd_scene load_steps=5 format=3 uid="uid://uacjonr6fobv"]
+[gd_scene load_steps=10 format=3 uid="uid://uacjonr6fobv"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/Menus/MainMenu/MainMenu.tscn" id="1_qga4p"]
 [ext_resource type="PackedScene" uid="uid://cagfbg7m2undu" path="res://scenes/Menus/OptionsMenu/MasterOptionsMenuWithTabs.tscn" id="2_ir3dh"]
 [ext_resource type="PackedScene" uid="uid://clabvuaem7bsx" path="res://scenes/Credits/Credits.tscn" id="3_fhpuo"]
+[ext_resource type="Texture2D" uid="uid://dme6badojlk41" path="res://assets/images/MainMenu.PNG" id="4_85rbe"]
 [ext_resource type="FontFile" uid="uid://cnfxocl60ho25" path="res://assets/fonts/KolkerBrush-Regular.ttf" id="4_afrqv"]
+[ext_resource type="AudioStream" uid="uid://bsru5t55um6xi" path="res://assets/sound/void_candidate.wav" id="4_mefx4"]
+
+[sub_resource type="Animation" id="Animation_mudc2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer/SubTitle:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Everything changes, nothing perishes.
+                                  —Ovid"]
+}
+
+[sub_resource type="Animation" id="Animation_xcwm2"]
+resource_name = "ovid"
+length = 18.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer/SubTitle:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 8, 9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": ["Everything changes, nothing perishes.
+                                  —Ovid", "Everything changes, nothing perishes.
+                                  —Ovid", "Everything changes, nothing perishes.
+                                  —Void", "Everything changes, nothing perishes.
+                                  —Void"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r8rl0"]
+_data = {
+"RESET": SubResource("Animation_mudc2"),
+"ovid": SubResource("Animation_xcwm2")
+}
 
 [node name="MainMenu" instance=ExtResource("1_qga4p")]
 game_scene_path = "res://scenes/Intro/intro.tscn"
 options_packed_scene = ExtResource("2_ir3dh")
 credits_packed_scene = ExtResource("3_fhpuo")
 
+[node name="BackgroundMusicPlayer" parent="." index="1"]
+stream = ExtResource("4_mefx4")
+
+[node name="BackgroundTextureRect" parent="." index="2"]
+texture = ExtResource("4_85rbe")
+
+[node name="TitlesMargin" parent="MenuContainer/VBoxContainer" index="0"]
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_right = 80
+
 [node name="Title" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer" index="0"]
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("4_afrqv")
 theme_override_font_sizes/font_size = 128
 text = "aVOIDance"
 
 [node name="SubTitle" parent="MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer" index="1"]
-text = ""
+size_flags_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0.215902, 0.215902, 0.215902, 1)
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/line_spacing = -22
+theme_override_fonts/font = ExtResource("4_afrqv")
+theme_override_font_sizes/font_size = 64
+text = "Everything changes, nothing perishes.
+                                  —Ovid"
 
 [node name="MenuMargin" parent="MenuContainer/VBoxContainer" index="1"]
 theme_override_constants/margin_left = 128
@@ -41,13 +109,8 @@ theme_override_font_sizes/font_size = 42
 custom_minimum_size = Vector2(128, 80)
 theme_override_font_sizes/font_size = 42
 
-[node name="EasterEgg" type="Label" parent="." index="8"]
-layout_mode = 0
-offset_left = 687.0
-offset_top = 263.0
-offset_right = 1207.0
-offset_bottom = 426.0
-theme_override_fonts/font = ExtResource("4_afrqv")
-theme_override_font_sizes/font_size = 64
-text = "Everything changes, nothing perishes.
-                                  —Ovid"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+"": SubResource("AnimationLibrary_r8rl0")
+}
+autoplay = "ovid"

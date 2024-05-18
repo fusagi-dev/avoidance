@@ -72,7 +72,7 @@ func calculate_neighbor_regions():
 		if color not in neighbor_regions:
 			neighbor_regions[color] = []
 		propagate_region(neighbor, color)
-	print(len(neighbor_regions))
+	#print(len(neighbor_regions))
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -84,7 +84,7 @@ func _ready():
 func highlight_region(region_id: int):
 	if highlighted_region == region_id:
 		return
-	print("highlighting region " + str(region_id))
+	#print("highlighting region " + str(region_id))
 	get_tree().call_group("tiles", "unhighlight", highlighted_region)
 	if region_id != -1:
 		get_tree().call_group("tiles", "highlight", region_id)
@@ -96,6 +96,9 @@ func fill_region(region_id: int):
 	if region_id == -1:
 		print("weird region id!")
 		return
+	
+	$AudioStreamPlayer.play()
+	
 	var region_tiles = neighbor_regions[region_id]
 	#print(region_tiles)
 	for tile in region_tiles:
@@ -111,11 +114,11 @@ func fill_region(region_id: int):
 	calculate_neighbor_regions()
 	
 	if len(get_used_cells(1)) == 64 * 64:
-		print("void prevailed!")
+		#print("void prevailed!")
 		emit_signal("void_prevailed")
 
 # doesn't work currently
 func _on_texture_rect_mouse_exited():
-	print("removing highlight")
+	#print("removing highlight")
 	get_tree().call_group("tiles", "unhighlight", highlighted_region)
 	highlighted_region = -2

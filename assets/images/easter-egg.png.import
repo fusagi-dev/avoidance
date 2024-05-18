@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuh3s2vadiuqb"
-path="res://.godot/imported/OutroWin-1.PNG-d1c7194c44cfca78f0ee39d425fc5373.ctex"
+uid="uid://b4pnj3si68jlg"
+path="res://.godot/imported/easter-egg.png-847b8350e96a47edf7a15d51a24641f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/OutroWin/OutroWin-1.PNG"
-dest_files=["res://.godot/imported/OutroWin-1.PNG-d1c7194c44cfca78f0ee39d425fc5373.ctex"]
+source_file="res://assets/images/easter-egg.png"
+dest_files=["res://.godot/imported/easter-egg.png-847b8350e96a47edf7a15d51a24641f2.ctex"]
 
 [params]
 

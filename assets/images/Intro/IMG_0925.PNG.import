@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuh3s2vadiuqb"
-path="res://.godot/imported/OutroWin-1.PNG-d1c7194c44cfca78f0ee39d425fc5373.ctex"
+uid="uid://chrpmfujebjts"
+path="res://.godot/imported/IMG_0925.PNG-e99ddedb08c9cc1a7368605514ada305.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/OutroWin/OutroWin-1.PNG"
-dest_files=["res://.godot/imported/OutroWin-1.PNG-d1c7194c44cfca78f0ee39d425fc5373.ctex"]
+source_file="res://assets/images/Intro/IMG_0925.PNG"
+dest_files=["res://.godot/imported/IMG_0925.PNG-e99ddedb08c9cc1a7368605514ada305.ctex"]
 
 [params]
 
