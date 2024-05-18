@@ -6,6 +6,22 @@
 [ext_resource type="Texture2D" uid="uid://dme6badojlk41" path="res://assets/images/MainMenu.PNG" id="4_85rbe"]
 [ext_resource type="FontFile" uid="uid://cnfxocl60ho25" path="res://assets/fonts/KolkerBrush-Regular.ttf" id="4_afrqv"]
 
+[sub_resource type="Animation" id="Animation_mudc2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer/SubTitle:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Everything changes, nothing perishes.
+                                  —Ovid"]
+}
+
 [sub_resource type="Animation" id="Animation_xcwm2"]
 resource_name = "ovid"
 length = 8.0
@@ -23,22 +39,6 @@ tracks/0/keys = {
 "values": ["Everything changes, nothing perishes.
                                   —Ovid", "Everything changes, nothing perishes.
                                   —Void"]
-}
-
-[sub_resource type="Animation" id="Animation_mudc2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MenuContainer/VBoxContainer/TitlesMargin/TitlesContainer/SubTitle:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Everything changes, nothing perishes.
-                                  —Ovid"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r8rl0"]

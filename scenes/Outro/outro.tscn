@@ -1,16 +1,17 @@
-[gd_scene load_steps=23 format=3 uid="uid://dwmkyryfu4sg2"]
+[gd_scene load_steps=24 format=3 uid="uid://dwmkyryfu4sg2"]
 
 [ext_resource type="Script" path="res://scenes/Outro/outro.gd" id="1_46xg3"]
 [ext_resource type="Texture2D" uid="uid://kt53oxupkdr4" path="res://assets/images/Intro/Intro-01.png" id="2_vfyr0"]
-[ext_resource type="Texture2D" uid="uid://dc2em67sy6c2c" path="res://assets/images/OutroWin/OutroWin-2.png" id="3_f1cri"]
-[ext_resource type="Texture2D" uid="uid://bqjqihiefj4bp" path="res://assets/images/OutroWin/OutroWin-3.png" id="4_3utn0"]
-[ext_resource type="Texture2D" uid="uid://c7f0qvcsmd7vu" path="res://assets/images/OutroWin/OutroWin-4.png" id="5_klb7q"]
-[ext_resource type="Texture2D" uid="uid://bdm2ffbpw0gf5" path="res://assets/images/OutroWin/OutroWin-5.png" id="6_ue0gw"]
-[ext_resource type="Texture2D" uid="uid://chuouno4bh74x" path="res://assets/images/OutroWin/OutroWin-6.png" id="7_6a3ya"]
-[ext_resource type="Texture2D" uid="uid://ofrsbguwxf32" path="res://assets/images/OutroWin/OutroWin-7.png" id="8_oae4p"]
-[ext_resource type="Texture2D" uid="uid://bp1a1vojkwu1i" path="res://assets/images/OutroWin/OutroWin-8.png" id="9_23t3j"]
-[ext_resource type="Texture2D" uid="uid://cfil8jc7dk6pc" path="res://assets/images/OutroWin/OutroWin-9.png" id="10_16mnt"]
-[ext_resource type="Texture2D" uid="uid://by35jrjc0626y" path="res://assets/images/OutroWin/OutroWin-10.png" id="11_0v05i"]
+[ext_resource type="Texture2D" uid="uid://dc2em67sy6c2c" path="res://assets/images/OutroWin/OutroWin-2.PNG" id="3_f1cri"]
+[ext_resource type="Texture2D" uid="uid://bqjqihiefj4bp" path="res://assets/images/OutroWin/OutroWin-3.PNG" id="4_3utn0"]
+[ext_resource type="Texture2D" uid="uid://c7f0qvcsmd7vu" path="res://assets/images/OutroWin/OutroWin-4.PNG" id="5_klb7q"]
+[ext_resource type="Texture2D" uid="uid://bdm2ffbpw0gf5" path="res://assets/images/OutroWin/OutroWin-5.PNG" id="6_ue0gw"]
+[ext_resource type="Texture2D" uid="uid://chuouno4bh74x" path="res://assets/images/OutroWin/OutroWin-6.PNG" id="7_6a3ya"]
+[ext_resource type="Texture2D" uid="uid://ofrsbguwxf32" path="res://assets/images/OutroWin/OutroWin-7.PNG" id="8_oae4p"]
+[ext_resource type="Texture2D" uid="uid://bp1a1vojkwu1i" path="res://assets/images/OutroWin/OutroWin-8.PNG" id="9_23t3j"]
+[ext_resource type="Texture2D" uid="uid://cfil8jc7dk6pc" path="res://assets/images/OutroWin/OutroWin-9.PNG" id="10_16mnt"]
+[ext_resource type="Texture2D" uid="uid://cuh3s2vadiuqb" path="res://assets/images/OutroWin/OutroWin-1.PNG" id="10_n43v2"]
+[ext_resource type="Texture2D" uid="uid://by35jrjc0626y" path="res://assets/images/OutroWin/OutroWin-10.PNG" id="11_0v05i"]
 [ext_resource type="Texture2D" uid="uid://bhqeeepbvkoe0" path="res://assets/images/OutroLose/OutroLose-1.png" id="12_vykfx"]
 [ext_resource type="Texture2D" uid="uid://baxhonnfw7bc2" path="res://assets/images/OutroLose/OutroLose-2.png" id="13_ye68n"]
 [ext_resource type="Texture2D" uid="uid://c4y2mnlflspds" path="res://assets/images/OutroLose/OutroLose-3.png" id="14_ayxx5"]
@@ -33,6 +34,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("2_vfyr0")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["[center]There once was an artist working on a painting.[/center]"]
+}
 
 [sub_resource type="Animation" id="Animation_krqto"]
 resource_name = "outro_lose_animation"
@@ -52,7 +65,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ytkm4"]
 resource_name = "outro_lose_animation"
-length = 20.0
+length = 25.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -60,10 +73,22 @@ tracks/0/path = NodePath("OutroSlideShow:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 6, 8, 10, 12, 14, 16, 18),
+"times": PackedFloat32Array(0, 2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20, 22.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_vfyr0"), ExtResource("3_f1cri"), ExtResource("4_3utn0"), ExtResource("5_klb7q"), ExtResource("6_ue0gw"), ExtResource("7_6a3ya"), ExtResource("8_oae4p"), ExtResource("9_23t3j"), ExtResource("10_16mnt"), ExtResource("11_0v05i")]
+"values": [ExtResource("10_n43v2"), ExtResource("3_f1cri"), ExtResource("4_3utn0"), ExtResource("5_klb7q"), ExtResource("6_ue0gw"), ExtResource("7_6a3ya"), ExtResource("8_oae4p"), ExtResource("9_23t3j"), ExtResource("10_16mnt"), ExtResource("11_0v05i")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 5, 7.5, 10, 12.5, 15, 17.5, 20, 22.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["[center]The artist was driven, quick, and meticulous.[/center]", "[center]...But the void was quicker.[/center]", "[center]There was nothing to salvage anymore.[/center]", "[center]But there was something the artist did not realize.[/center]", "[center](Or maybe they did?..)[/center]", "[center]Nothing can vanish without a trace.[/center]", "[center]Somewhere, within the void, their work remains still.[/center]", "[center]And who knows? Maybe, one day...[/center]", "[center]The void will come across a missing piece that will fit just right.[/center]", "[center]THE END[/center]"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c2wm0"]
@@ -90,8 +115,8 @@ offset_bottom = 720.0
 color = Color(0.734845, 0.763266, 0.739846, 1)
 
 [node name="OutroSlideShow" type="Sprite2D" parent="."]
-position = Vector2(645, 361)
-scale = Vector2(0.442683, 0.442683)
+position = Vector2(645, 234)
+scale = Vector2(0.668518, 0.668519)
 texture = ExtResource("2_vfyr0")
 
 [node name="SkipButton" type="Button" parent="."]
@@ -100,6 +125,22 @@ offset_top = 37.0
 offset_right = 1245.0
 offset_bottom = 94.0
 text = "Skip"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -7.0
+offset_top = 562.0
+offset_right = 1289.0
+offset_bottom = 731.0
+color = Color(0.79784, 0.786049, 0.723451, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_top = 603.0
+offset_right = 1277.0
+offset_bottom = 717.0
+theme_override_colors/default_color = Color(0.271163, 0.124928, 0.0479414, 1)
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[center]There once was an artist working on a painting.[/center]"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
