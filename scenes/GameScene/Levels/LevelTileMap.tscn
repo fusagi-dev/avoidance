@@ -1,98 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://6g031n8jj0tx"]
-
-[ext_resource type="Texture2D" uid="uid://2hcmpv76gu50" path="res://assets/images/Levels/castle_10x.png" id="1_ursj8"]
-[ext_resource type="Texture2D" uid="uid://p12q8k0nbspm" path="res://assets/images/Levels/void.png" id="2_7m7u7"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ag6v3"]
-texture = ExtResource("1_ursj8")
-texture_region_size = Vector2i(10, 10)
-0:0/0 = 0
-0:34/0 = 0
-0:35/0 = 0
-4:7/0 = 0
-4:51/0 = 0
-14:18/0 = 0
-18:13/0 = 0
-24:17/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2jgdd"]
-texture = ExtResource("2_7m7u7")
-texture_region_size = Vector2i(10, 10)
-0:0/0 = 0
-0:0/0/terrain_set = 0
-0:0/0/terrain = 0
-0:0/0/terrains_peering_bit/right_side = 0
-0:0/0/terrains_peering_bit/bottom_right_corner = 0
-0:0/0/terrains_peering_bit/bottom_side = 0
-1:0/0 = 0
-1:0/0/terrain_set = 0
-1:0/0/terrain = 0
-1:0/0/terrains_peering_bit/right_side = 0
-1:0/0/terrains_peering_bit/bottom_right_corner = 0
-1:0/0/terrains_peering_bit/bottom_side = 0
-1:0/0/terrains_peering_bit/bottom_left_corner = 0
-1:0/0/terrains_peering_bit/left_side = 0
-2:0/0 = 0
-2:0/0/terrain_set = 0
-2:0/0/terrain = 0
-2:0/0/terrains_peering_bit/bottom_side = 0
-2:0/0/terrains_peering_bit/bottom_left_corner = 0
-2:0/0/terrains_peering_bit/left_side = 0
-0:1/0 = 0
-0:1/0/terrain_set = 0
-0:1/0/terrain = 0
-0:1/0/terrains_peering_bit/right_side = 0
-0:1/0/terrains_peering_bit/bottom_right_corner = 0
-0:1/0/terrains_peering_bit/bottom_side = 0
-0:1/0/terrains_peering_bit/top_side = 0
-0:1/0/terrains_peering_bit/top_right_corner = 0
-1:1/0 = 0
-1:1/0/terrain_set = 0
-1:1/0/terrain = 0
-1:1/0/terrains_peering_bit/right_side = 0
-1:1/0/terrains_peering_bit/bottom_right_corner = 0
-1:1/0/terrains_peering_bit/bottom_side = 0
-1:1/0/terrains_peering_bit/bottom_left_corner = 0
-1:1/0/terrains_peering_bit/left_side = 0
-1:1/0/terrains_peering_bit/top_left_corner = 0
-1:1/0/terrains_peering_bit/top_side = 0
-1:1/0/terrains_peering_bit/top_right_corner = 0
-2:1/0 = 0
-2:1/0/terrain_set = 0
-2:1/0/terrain = 0
-2:1/0/terrains_peering_bit/bottom_side = 0
-2:1/0/terrains_peering_bit/bottom_left_corner = 0
-2:1/0/terrains_peering_bit/left_side = 0
-2:1/0/terrains_peering_bit/top_left_corner = 0
-2:1/0/terrains_peering_bit/top_side = 0
-0:2/0 = 0
-0:2/0/terrain_set = 0
-0:2/0/terrain = 0
-0:2/0/terrains_peering_bit/right_side = 0
-0:2/0/terrains_peering_bit/top_side = 0
-0:2/0/terrains_peering_bit/top_right_corner = 0
-1:2/0 = 0
-1:2/0/terrain_set = 0
-1:2/0/terrain = 0
-1:2/0/terrains_peering_bit/right_side = 0
-1:2/0/terrains_peering_bit/left_side = 0
-1:2/0/terrains_peering_bit/top_left_corner = 0
-1:2/0/terrains_peering_bit/top_side = 0
-1:2/0/terrains_peering_bit/top_right_corner = 0
-2:2/0 = 0
-2:2/0/terrain_set = 0
-2:2/0/terrain = 0
-2:2/0/terrains_peering_bit/left_side = 0
-2:2/0/terrains_peering_bit/top_left_corner = 0
-2:2/0/terrains_peering_bit/top_side = 0
+[gd_scene load_steps=2 format=3 uid="uid://6g031n8jj0tx"]
 
 [sub_resource type="TileSet" id="TileSet_hnxs7"]
 tile_size = Vector2i(10, 10)
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Void"
 terrain_set_0/terrain_0/color = Color(0.564896, 0.238325, 0.515252, 1)
-sources/0 = SubResource("TileSetAtlasSource_ag6v3")
-sources/1 = SubResource("TileSetAtlasSource_2jgdd")
 
 [node name="TileMap" type="TileMap"]
 tile_set = SubResource("TileSet_hnxs7")

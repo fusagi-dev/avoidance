@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx6jbekjr8c4x"]
+
+[ext_resource type="Script" path="res://scenes/GameScene/Levels/Buttons/TileButton.gd" id="1_ui2a0"]
+[ext_resource type="Texture2D" uid="uid://cjra40edu0uu1" path="res://assets/images/Levels/green.png" id="1_w7n7h"]
+
+[node name="TileButton" type="TextureButton"]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+texture_normal = ExtResource("1_w7n7h")
+script = ExtResource("1_ui2a0")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

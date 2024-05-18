@@ -9,4 +9,7 @@ script = ExtResource("2_85nan")
 next_scene = "res://scenes/EndCredits/EndCredits.tscn"
 main_menu_scene = "res://scenes/Menus/MainMenu/MainMenuWithAnimations.tscn"
 
+[node name="ContinueButton" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonsContainer" index="2"]
+text = "Credits"
+
 [node name="Outro" parent="." index="6" instance=ExtResource("3_hhsx2")]
