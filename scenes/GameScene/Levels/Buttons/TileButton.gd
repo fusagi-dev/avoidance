@@ -31,3 +31,7 @@ func highlight(highlighted_region_id: int):
 func unhighlight(highlighted_region_id: int):
 	if highlighted_region_id == region_id:
 		texture_normal = texture_default
+
+
+func _on_pressed():
+	get_tree().call_group("level", "fill_region", region_id)

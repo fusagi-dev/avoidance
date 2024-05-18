@@ -94,6 +94,13 @@ func highlight_region(region_id: int):
 	else:
 		highlighted_region = -2
 
+func fill_region(region_id: int):
+	var region_tiles = neighbor_regions[region_id]
+	for tile in region_tiles:
+		set_cell(1, tile, 2, tile)
+	# fix misalignment
+	#set_cells_terrain_connect(1, region_tiles, 0, 0)
+
 # doesn't work currently
 func _on_texture_rect_mouse_exited():
 	print("removing highlight")
