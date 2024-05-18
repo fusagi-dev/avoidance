@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://uacjonr6fobv"]
+[gd_scene load_steps=10 format=3 uid="uid://uacjonr6fobv"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/Menus/MainMenu/MainMenu.tscn" id="1_qga4p"]
 [ext_resource type="PackedScene" uid="uid://cagfbg7m2undu" path="res://scenes/Menus/OptionsMenu/MasterOptionsMenuWithTabs.tscn" id="2_ir3dh"]
 [ext_resource type="PackedScene" uid="uid://clabvuaem7bsx" path="res://scenes/Credits/Credits.tscn" id="3_fhpuo"]
 [ext_resource type="Texture2D" uid="uid://dme6badojlk41" path="res://assets/images/MainMenu.PNG" id="4_85rbe"]
 [ext_resource type="FontFile" uid="uid://cnfxocl60ho25" path="res://assets/fonts/KolkerBrush-Regular.ttf" id="4_afrqv"]
+[ext_resource type="AudioStream" uid="uid://bsru5t55um6xi" path="res://assets/sound/void_candidate.wav" id="4_mefx4"]
 
 [sub_resource type="Animation" id="Animation_mudc2"]
 length = 0.001
@@ -53,6 +54,9 @@ _data = {
 game_scene_path = "res://scenes/Intro/intro.tscn"
 options_packed_scene = ExtResource("2_ir3dh")
 credits_packed_scene = ExtResource("3_fhpuo")
+
+[node name="BackgroundMusicPlayer" parent="." index="1"]
+stream = ExtResource("4_mefx4")
 
 [node name="BackgroundTextureRect" parent="." index="2"]
 texture = ExtResource("4_85rbe")

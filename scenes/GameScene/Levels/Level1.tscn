@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://1pdv76fc2dve"]
+[gd_scene load_steps=22 format=3 uid="uid://1pdv76fc2dve"]
 
 [ext_resource type="Script" path="res://scenes/GameScene/Levels/Level.gd" id="1_k6pla"]
 [ext_resource type="PackedScene" uid="uid://6g031n8jj0tx" path="res://scenes/GameScene/Levels/LevelTileMap.tscn" id="2_jn05g"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bu2fxewucaj2i" path="res://assets/images/Levels/void_better.PNG" id="13_08rbp"]
 [ext_resource type="Script" path="res://scenes/GameScene/Levels/LevelTileMap.gd" id="13_gklct"]
 [ext_resource type="PackedScene" uid="uid://b04nk6k7ekcrn" path="res://scenes/GameScene/Levels/Buttons/OrangeButton.tscn" id="13_umomy"]
+[ext_resource type="AudioStream" uid="uid://djwihi57cdiq2" path="res://assets/sound/void_candidate_2_less_harmonic.wav" id="15_ci5jc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ag6v3"]
 texture = ExtResource("3_ebhak")
@@ -4247,6 +4248,9 @@ offset_bottom = 643.0
 scale = Vector2(0.99, 0.99)
 texture = ExtResource("3_ebhak")
 expand_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TileMap"]
+stream = ExtResource("15_ci5jc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(150, 120)
