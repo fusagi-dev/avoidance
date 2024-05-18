@@ -1,11 +1,12 @@
 extends TileMap
 
 signal level_ready
+signal void_prevailed
 
 var cell_to_id = {}
 var id_to_cell = {}
 var neighbors = []
-var neighbor_regions = []
+var neighbor_regions = {}
 var all_adjacent_tiles = []
 var void_cells = []
 var highlighted_region: int = -2
@@ -18,9 +19,8 @@ func get_neighbors(coords: Vector2i):
 		get_neighbor_cell(coords, TileSet.CELL_NEIGHBOR_BOTTOM_SIDE)
 	]
 
-func register_tile(global_position: Vector2i, instance_id: int, color: RID):
-	#var map_position = local_to_map(to_local(global_position))
-	var map_position = local_to_map(global_position)
+func register_tile(tile_position: Vector2i, instance_id: int, color: int):
+	var map_position = local_to_map(tile_position)
 	cell_to_id[map_position] = [instance_id, color]
 	id_to_cell[instance_id] = map_position
 	instance_from_id(instance_id).add_to_group("tiles")
@@ -42,35 +42,37 @@ func update_cell_groups(new_void_cells):
 						neighbors.append(neighbor_coords)
 						get_cell(neighbor_coords).add_to_group("neighbors")
 
-	print(neighbors)
+	#print(neighbors)
 
 	#get_tree().call_group("neighbors", "_on_mouse_entered")
 
-func propagate_region(coords: Vector2i, region_id: int, color: RID):
+func propagate_region(coords: Vector2i, color: int):
 	if coords not in cell_to_id or coords in void_cells:
 		return
-	if coords in neighbor_regions[region_id]:
+	if coords in neighbor_regions[color]:
 		return
 	if cell_to_id[coords][1] != color:
 		return
-	neighbor_regions[region_id].append(coords)
+	neighbor_regions[color].append(coords)
 	all_adjacent_tiles.append(coords)
-	get_cell(coords).region_id = region_id
+	#print("propagated to " +  str(coords))
+	get_cell(coords).region_id = color
 	for neighbor in get_neighbors(coords):
-		propagate_region(neighbor, region_id, color)
+		#print("propagating color " + str(color) + " from " + str(coords) + " to " + str(neighbor))
+		propagate_region(neighbor, color)
 
 func calculate_neighbor_regions():
 	# make tiles remove themselves from group when needed
-	neighbor_regions = []
+	neighbor_regions = {}
 	all_adjacent_tiles = []
 	for neighbor in neighbors:
 		if neighbor in all_adjacent_tiles:
 			continue
-		var region_id = len(neighbor_regions)
-		neighbor_regions.append([])
-		propagate_region(neighbor, region_id, cell_to_id[neighbor][1])
+		var color = cell_to_id[neighbor][1]
+		if color not in neighbor_regions:
+			neighbor_regions[color] = []
+		propagate_region(neighbor, color)
 	print(len(neighbor_regions))
-	print(len(neighbor_regions[0]))
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -78,10 +80,6 @@ func _ready():
 	await level_ready
 	update_cell_groups(get_used_cells(1))
 	calculate_neighbor_regions()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func highlight_region(region_id: int):
 	if highlighted_region == region_id:
@@ -96,6 +94,7 @@ func highlight_region(region_id: int):
 
 func fill_region(region_id: int):
 	var region_tiles = neighbor_regions[region_id]
+	#print(region_tiles)
 	for tile in region_tiles:
 		set_cell(1, tile, 2, tile)
 		get_cell(tile).region_id = -1
@@ -107,6 +106,10 @@ func fill_region(region_id: int):
 	neighbors = new_neighbors
 	update_cell_groups(region_tiles)
 	calculate_neighbor_regions()
+	
+	if len(get_used_cells(1)) == 64 * 64:
+		print("void prevailed!")
+		emit_signal("void_prevailed")
 
 # doesn't work currently
 func _on_texture_rect_mouse_exited():
