@@ -8,3 +8,7 @@ func _on_lose_button_pressed():
 
 func _on_win_button_pressed():
 	emit_signal("level_won")
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
