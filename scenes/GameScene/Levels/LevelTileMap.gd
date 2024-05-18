@@ -93,6 +93,9 @@ func highlight_region(region_id: int):
 		highlighted_region = -2
 
 func fill_region(region_id: int):
+	if region_id == -1:
+		print("weird region id!")
+		return
 	var region_tiles = neighbor_regions[region_id]
 	#print(region_tiles)
 	for tile in region_tiles:
