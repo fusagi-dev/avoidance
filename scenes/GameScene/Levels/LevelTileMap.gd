@@ -31,9 +31,9 @@ func register_tile(global_position: Vector2i, instance_id: int, color: RID):
 func get_cell(coords: Vector2i):
 	return instance_from_id(cell_to_id[coords][0])
 
-func init_cell_groups():
-	void_cells = get_used_cells(1)
-	for void_cell_coords in void_cells:
+func update_cell_groups(new_void_cells):
+	void_cells.append(new_void_cells)
+	for void_cell_coords in new_void_cells:
 		var new_neighbors = get_neighbors(void_cell_coords)
 		for neighbor_coords in new_neighbors:
 			if neighbor_coords not in neighbors:
@@ -69,15 +69,15 @@ func calculate_neighbor_regions():
 		var region_id = len(neighbor_regions)
 		neighbor_regions.append([])
 		propagate_region(neighbor, region_id, cell_to_id[neighbor][1])
+	print(len(neighbor_regions))
+	print(len(neighbor_regions[0]))
 	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	await level_ready
-	init_cell_groups()
+	update_cell_groups(get_used_cells(1))
 	calculate_neighbor_regions()
-	print(len(neighbor_regions))
-	print(len(neighbor_regions[0]))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -98,8 +98,15 @@ func fill_region(region_id: int):
 	var region_tiles = neighbor_regions[region_id]
 	for tile in region_tiles:
 		set_cell(1, tile, 2, tile)
-	# fix misalignment
-	#set_cells_terrain_connect(1, region_tiles, 0, 0)
+		get_cell(tile).region_id = -1
+	
+	var new_neighbors = []
+	for neighbor in neighbors:
+		if not neighbor in region_tiles:
+			new_neighbors.append(neighbor)
+	neighbors = new_neighbors
+	update_cell_groups(region_tiles)
+	calculate_neighbor_regions()
 
 # doesn't work currently
 func _on_texture_rect_mouse_exited():
