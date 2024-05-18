@@ -102,5 +102,5 @@ offset_bottom = 94.0
 text = "Skip"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="pressed" from="SkipButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="SkipButton" to="." method="_on_skip_button_pressed"]
+[connection signal="pressed" from="SkipButton" to="." method="_on_button_pressed"]
